@@ -8,6 +8,7 @@ use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\TransaksiController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
@@ -21,17 +22,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('pages.beranda.index');
-// });
-
-
-
-
-// Route::get('/transaksi', [TransaksiController::class, 'index']);
-// Route::get('item-bayar', [TransaksiController::class, 'itemm']);
-
 
 Route::group(['middleware' => ['auth', 'checkRole:pelanggan']], function () {
     Route::get('/', [BerandaController::class, 'tampilproduk']);

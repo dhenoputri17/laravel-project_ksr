@@ -23,5 +23,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['cors'])->group(function () {
     Route::get('/produk/{kategoriId?}', [MobileController::class, 'getproduks']);
     Route::get('/kategori', [MobileController::class, 'getkategori']);
-    Route::post('/tambah', [MobileController::class, 'addkeranjang']);
+    Route::get('/meja', [MobileController::class, 'dataMeja']);
+    Route::get('/cari', [MobileController::class, 'searchdata']);
+    Route::post('/login', [MobileController::class, 'loginUser']);
+    Route::post('/register', [MobileController::class, 'registerUser']);
+    Route::post('/hapusitem', [MobileController::class, 'hapusItem']);
+    Route::post('/cart', [MobileController::class, 'addkeranjang']);
+    Route::get('/detail/{idUser?}', [MobileController::class, 'getKeranjang']);
+    Route::get('/troli/{idUser?}', [MobileController::class, 'dataCart']);
+    Route::post('/checkout', [MobileController::class, 'chekoutPesan']);
+    Route::post('/tmbQty', [MobileController::class, 'tambahQty']);
+    Route::post('/krgQty', [MobileController::class, 'kurangQty']);
+    Route::get('/dataDetail/{idUser?}', [MobileController::class, 'dataDetail']);
+    
 });
